@@ -21,11 +21,11 @@ const App = () => {
 
   // helper functions
   const increment = () => {
-    setCount(count + 1);
+    setCount(count + 1); //setting the counts value to whateever its current value is and adding 1
   };
 
   const decrement = () => {
-    setCount(count - 1);
+    setCount(count - 1); //setting the counts value to whateever its current value is and decrementing by 1
   };
 
   // UI
