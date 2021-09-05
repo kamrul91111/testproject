@@ -5,7 +5,7 @@ import axios from "axios";
 const App = () => {
   // states
   const [count, setCount] = useState(0); //first value in the array is the js value that we will modify, second value is the function to mutate the value
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); //we're telling react to expect an array by passing empty array as initial state
 
   // react hook to launch a function dependening on dependencies rather than ui control elements
   useEffect(() => {
@@ -13,10 +13,10 @@ const App = () => {
     axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then(res => {
-        console.log(res.data);
-        setData(res.data);
+        console.log(res.data); //print the response in the browsers console
+        setData(res.data); //set the data to whatever res.data is
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err)); //any error with the request, print it in the browsers console
   }, []); //empty array dependency, so only launch the function when this component renders
 
   // helper functions
@@ -31,6 +31,7 @@ const App = () => {
   // UI
   return (
     <div>
+      {/* passing the decrement function to onclick, '() =>'  this expression in es6 implies receive a function which is....*/}
       <button onClick={() => decrement()}>decrement</button>
       <h1>{count}</h1>
       {/* js map function to iterate through array and render the values */}
@@ -40,6 +41,7 @@ const App = () => {
           <p>{item.body}</p>
         </div>
       ))}
+      {/* if we are just passing a function in onclick, we can just paste it here as such without the '()=>' */}
       <button onClick={increment}>increment</button>
     </div>
   );
